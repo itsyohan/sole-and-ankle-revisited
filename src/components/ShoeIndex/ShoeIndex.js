@@ -47,10 +47,19 @@ const Wrapper = styled.div`
   flex-direction: row-reverse;
   align-items: baseline;
   gap: 32px;
+
+  @media (max-width: 59.375rem) {
+    flex-direction: column-reverse;
+    gap: 0;
+  }
 `;
 
 const LeftColumn = styled.div`
   flex-basis: 248px;
+
+  @media (max-width: 59.375rem) {
+    flex-basis: 0;
+  }
 `;
 
 const MainColumn = styled.div`

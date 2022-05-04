@@ -11,13 +11,20 @@ const SearchInput = ({ label, ...delegated }) => {
     <Label>
       <VisuallyHidden>Search</VisuallyHidden>
       <Input {...delegated} placeholder="Search…" />
-      <SearchIcon id="search" strokeWidth={1} size={16} />
+      <SearchIcon id="search" strokeWidth={1} />
     </Label>
   );
 };
 
+// label hack
+// on mobile label becomes 0 width so giving it an explicit size
 const Label = styled.label`
   position: relative;
+
+  @media (max-width: 59.375rem) {
+    width: 24px;
+    height: 24px;
+  }
 `;
 
 const Input = styled.input`
@@ -32,6 +39,10 @@ const Input = styled.input`
   &::placeholder {
     color: ${COLORS.gray[500]};
   }
+
+  @media (max-width: 59.375rem) {
+    display: none;
+  }
 `;
 
 const SearchIcon = styled(Icon)`
@@ -42,6 +53,19 @@ const SearchIcon = styled(Icon)`
   margin: auto;
   width: 16px;
   height: 16px;
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  @media (max-width: 59.375rem) {
+    width: 24px;
+    height: 24px;
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
 `;
 
 export default SearchInput;

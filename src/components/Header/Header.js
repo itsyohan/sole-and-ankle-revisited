@@ -15,7 +15,7 @@ const Header = () => {
   // <button onClick={() => setShowMobileMenu(true)}>
 
   return (
-    <header>
+    <Wrapper>
       <SuperHeader />
       <MainHeader>
         <Side>
@@ -36,9 +36,22 @@ const Header = () => {
         isOpen={showMobileMenu}
         onDismiss={() => setShowMobileMenu(false)}
       />
-    </header>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.header`
+  @media (max-width: 59.375rem) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media (max-width: 59.375rem) {
+    border-bottom: 1px solid ${COLORS.gray[300]};
+  }
+`
 
 const MainHeader = styled.div`
   display: flex;
@@ -46,12 +59,20 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+
+  @media (max-width: 59.375rem) {
+    border-bottom: unset;
+  }
 `;
 
 const Nav = styled.nav`
   display: flex;
   gap: 48px;
   margin: 0px 48px;
+
+  @media (max-width: 59.375rem) {
+    display: none;
+  }
 `;
 
 const Side = styled.div`
@@ -69,5 +90,6 @@ const NavLink = styled.a`
     color: ${COLORS.secondary};
   }
 `;
+
 
 export default Header;
