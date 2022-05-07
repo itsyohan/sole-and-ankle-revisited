@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { COLORS } from '../../constants';
+import { COLORS, QUERIES } from '../../constants';
 
 import SearchInput from '../SearchInput';
 import UnstyledButton from '../UnstyledButton';
@@ -37,7 +37,7 @@ const Wrapper = styled.div`
   padding-left: 32px;
   padding-right: 32px;
 
-  @media (max-width: 59.375rem) {
+  @media ${QUERIES.tabletAndSmaller} {
     background-color: revert;
     flex-direction: row-reverse;
     justify-content: space-between;
@@ -49,7 +49,7 @@ const MarketingMessage = styled.span`
   color: ${COLORS.white};
   margin-right: auto;
 
-  @media (max-width: 59.375rem) {
+  @media ${QUERIES.tabletAndSmaller} {
     display: none;
   }
 `;
@@ -63,7 +63,7 @@ const HelpLink = styled.a`
     outline: none;
   }
 
-  @media (max-width: 59.375rem) {
+  @media ${QUERIES.tabletAndSmaller} {
     display: none;
   }
 `;

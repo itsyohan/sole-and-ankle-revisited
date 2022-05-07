@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { COLORS } from '../../constants';
+import { COLORS, QUERIES } from '../../constants';
 
 import VisuallyHidden from '../VisuallyHidden';
 import Icon from '../Icon';
@@ -21,7 +21,7 @@ const SearchInput = ({ label, ...delegated }) => {
 const Label = styled.label`
   position: relative;
 
-  @media (max-width: 59.375rem) {
+  @media ${QUERIES.tabletAndSmaller} {
     width: 24px;
     height: 24px;
   }
@@ -40,7 +40,7 @@ const Input = styled.input`
     color: ${COLORS.gray[500]};
   }
 
-  @media (max-width: 59.375rem) {
+  @media ${QUERIES.tabletAndSmaller} {
     display: none;
   }
 `;
@@ -58,7 +58,7 @@ const SearchIcon = styled(Icon)`
     height: 16px;
   }
 
-  @media (max-width: 59.375rem) {
+  @media ${QUERIES.tabletAndSmaller} {
     width: 24px;
     height: 24px;
     svg {

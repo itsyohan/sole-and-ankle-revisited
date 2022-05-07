@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { COLORS, WEIGHTS } from '../../constants';
+import { COLORS, WEIGHTS, QUERIES } from '../../constants';
 
 const Sidebar = () => {
   return (
@@ -24,7 +24,7 @@ const Sidebar = () => {
 };
 
 const Wrapper = styled.aside`
-  @media (max-width: 59.375rem) {
+  @media ${QUERIES.tabletAndSmaller} {
     display: none;
   }
 `;

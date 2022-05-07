@@ -5,9 +5,10 @@ import { COLORS, WEIGHTS } from '../../constants';
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
+import { QUERIES } from '../../constants';
 
 const Header = () => {
-  const [showMobileMenu, setShowMobileMenu] = React.useState(false);
+  const [showMobileMenu, setShowMobileMenu] = React.useState(true);
 
   // For our mobile hamburger menu, we'll want to use a button
   // with an onClick handler, something like this:
@@ -41,14 +42,14 @@ const Header = () => {
 };
 
 const Wrapper = styled.header`
-  @media (max-width: 59.375rem) {
+  @media ${QUERIES.tabletAndSmaller} {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
   }
 
-  @media (max-width: 59.375rem) {
+  @media ${QUERIES.tabletAndSmaller} {
     border-bottom: 1px solid ${COLORS.gray[300]};
   }
 `
@@ -60,7 +61,7 @@ const MainHeader = styled.div`
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
 
-  @media (max-width: 59.375rem) {
+  @media ${QUERIES.tabletAndSmaller} {
     border-bottom: unset;
   }
 `;
@@ -70,7 +71,7 @@ const Nav = styled.nav`
   gap: 48px;
   margin: 0px 48px;
 
-  @media (max-width: 59.375rem) {
+  @media ${QUERIES.tabletAndSmaller} {
     display: none;
   }
 `;
