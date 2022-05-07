@@ -50,22 +50,6 @@ const SearchIcon = styled(Icon)`
   top: 0;
   left: 0;
   bottom: 0;
-  margin: auto;
-  width: 16px;
-  height: 16px;
-  svg {
-    width: 16px;
-    height: 16px;
-  }
-
-  @media ${QUERIES.tabletAndSmaller} {
-    width: 24px;
-    height: 24px;
-    svg {
-      width: 24px;
-      height: 24px;
-    }
-  }
 `;
 
 export default SearchInput;

@@ -6,6 +6,8 @@ import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
 import { QUERIES } from '../../constants';
+import UnstyledButton from '../UnstyledButton';
+import Icon from '../Icon';
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(true);
@@ -22,15 +24,26 @@ const Header = () => {
         <Side>
           <Logo />
         </Side>
-        <Nav>
+        <DesktopNav>
           <NavLink href="/sale">Sale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
           <NavLink href="/men">Men</NavLink>
           <NavLink href="/women">Women</NavLink>
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
-        </Nav>
+        </DesktopNav>
         <Side />
+        <MobileNav>
+          <UnstyledButton>
+            <Icon id="search" strokeWidth={1} />
+          </UnstyledButton>
+          <UnstyledButton>
+            <Icon id="shopping-bag" strokeWidth={1} />
+          </UnstyledButton>
+          <HamburgerMenu onClick={() => setShowMobileMenu(true)}>
+            <Icon id="menu" strokeWidth={1} />
+          </HamburgerMenu>
+        </MobileNav>
       </MainHeader>
 
       <MobileMenu
@@ -42,31 +55,40 @@ const Header = () => {
 };
 
 const Wrapper = styled.header`
-  @media ${QUERIES.tabletAndSmaller} {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  @media ${QUERIES.tabletAndSmaller} {
-    border-bottom: 1px solid ${COLORS.gray[300]};
-  }
-`
-
-const MainHeader = styled.div`
-  display: flex;
-  align-items: baseline;
-  padding: 18px 32px;
-  height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
 
   @media ${QUERIES.tabletAndSmaller} {
-    border-bottom: unset;
+    display: flex;
   }
 `;
 
-const Nav = styled.nav`
+const MainHeader = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+  padding: 18px 32px;
+  height: 72px;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    align-items: center;
+  }
+`;
+
+const MobileNav = styled.div`
+  display: none;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    display: flex;
+    gap: 45px;
+    margin-left: auto;
+  }
+
+  ${UnstyledButton} {
+    color: hsla(220, 3%, 20%, 1);
+  }
+`;
+
+const DesktopNav = styled.nav`
   display: flex;
   gap: 48px;
   margin: 0px 48px;
@@ -91,6 +113,10 @@ const NavLink = styled.a`
     color: ${COLORS.secondary};
   }
 `;
+
+const HamburgerMenu = styled(UnstyledButton)`
+
+`
 
 
 export default Header;
